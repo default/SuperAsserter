@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment version="4608" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AssertionController" customModule="SuperAsserter">
+            <connections>
+                <outlet property="headerView" destination="DCc-kd-2ep" id="tQM-mW-bEl"/>
+                <outlet property="levelLabel" destination="IMr-ed-mvf" id="baa-pG-d6P"/>
+                <outlet property="proceedButton" destination="Pa1-KX-g3C" id="k2O-mk-RFk"/>
+                <outlet property="sendActivityIndicator" destination="wuP-dL-9r2" id="vOW-4x-a7F"/>
+                <outlet property="sendButton" destination="Suf-3k-GJD" id="3nM-JC-jkF"/>
+                <outlet property="textView" destination="oQu-4O-9E3" id="ytJ-DG-iEP"/>
+                <outlet property="titleLabel" destination="4mi-M1-v0N" id="e1r-5I-iJo"/>
+                <outlet property="view" destination="cAR-06-WHt" id="7kJ-JP-haJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="cAR-06-WHt">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCc-kd-2ep">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="124.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assertion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mi-M1-v0N">
+                            <rect key="frame" x="20" y="52" width="137" height="42.5"/>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="31"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Critical" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMr-ed-mvf">
+                            <rect key="frame" x="20" y="94.5" width="53" height="22"/>
+                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="16"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Suf-3k-GJD">
+                            <rect key="frame" x="336.5" y="67.5" width="57.5" height="31"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Send" cornerStyle="capsule"/>
+                            <connections>
+                                <action selector="sendButtonAction" destination="-1" eventType="touchUpInside" id="4Ak-lw-lQg"/>
+                            </connections>
+                        </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wuP-dL-9r2">
+                            <rect key="frame" x="355.5" y="73" width="20" height="20"/>
+                            <color key="color" systemColor="systemBlueColor"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="4mi-M1-v0N" firstAttribute="top" secondItem="DCc-kd-2ep" secondAttribute="topMargin" id="Am8-lQ-lU4"/>
+                        <constraint firstItem="wuP-dL-9r2" firstAttribute="centerY" secondItem="Suf-3k-GJD" secondAttribute="centerY" id="Cbg-FP-kKr"/>
+                        <constraint firstItem="IMr-ed-mvf" firstAttribute="top" secondItem="4mi-M1-v0N" secondAttribute="bottom" id="I7K-uI-Jwr"/>
+                        <constraint firstAttribute="trailing" secondItem="Suf-3k-GJD" secondAttribute="trailing" constant="20" id="Uec-Km-4xz"/>
+                        <constraint firstItem="Suf-3k-GJD" firstAttribute="centerY" secondItem="4mi-M1-v0N" secondAttribute="baseline" id="Uzi-bV-alC"/>
+                        <constraint firstItem="wuP-dL-9r2" firstAttribute="centerX" secondItem="Suf-3k-GJD" secondAttribute="centerX" id="WkK-xR-DjS"/>
+                        <constraint firstAttribute="bottom" secondItem="IMr-ed-mvf" secondAttribute="bottom" constant="8" id="gms-Xm-pM4"/>
+                        <constraint firstItem="4mi-M1-v0N" firstAttribute="leading" secondItem="DCc-kd-2ep" secondAttribute="leading" constant="20" id="gr8-wi-80h"/>
+                        <constraint firstItem="IMr-ed-mvf" firstAttribute="leading" secondItem="DCc-kd-2ep" secondAttribute="leading" constant="20" id="jWO-kw-Syu"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQu-4O-9E3" customClass="UITextView">
+                    <rect key="frame" x="0.0" y="124.5" width="414" height="771.5"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pa1-KX-g3C">
+                    <rect key="frame" x="130.5" y="796" width="153.5" height="50"/>
+                    <color key="backgroundColor" systemColor="linkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="T3b-cP-f3X"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Return to app" cornerStyle="capsule" titleAlignment="center">
+                        <fontDescription key="titleFontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="20" bottom="0.0" trailing="20"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="proceedButtonAction" destination="-1" eventType="touchUpInside" id="fwJ-fd-4ru"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="CX2-bT-yAR"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="oQu-4O-9E3" firstAttribute="top" secondItem="DCc-kd-2ep" secondAttribute="bottom" id="3Sj-KL-X7G"/>
+                <constraint firstItem="Pa1-KX-g3C" firstAttribute="centerX" secondItem="cAR-06-WHt" secondAttribute="centerX" id="4iW-ur-jab"/>
+                <constraint firstItem="DCc-kd-2ep" firstAttribute="top" secondItem="cAR-06-WHt" secondAttribute="top" id="Obm-6o-YhV"/>
+                <constraint firstItem="oQu-4O-9E3" firstAttribute="leading" secondItem="cAR-06-WHt" secondAttribute="leading" id="PTT-o2-GVi"/>
+                <constraint firstItem="CX2-bT-yAR" firstAttribute="bottom" secondItem="Pa1-KX-g3C" secondAttribute="bottom" constant="16" id="Zk8-j6-qKP"/>
+                <constraint firstItem="oQu-4O-9E3" firstAttribute="bottom" secondItem="cAR-06-WHt" secondAttribute="bottom" id="ZnW-sX-VxB"/>
+                <constraint firstItem="DCc-kd-2ep" firstAttribute="trailing" secondItem="CX2-bT-yAR" secondAttribute="trailing" id="eeG-mS-MOL"/>
+                <constraint firstItem="DCc-kd-2ep" firstAttribute="leading" secondItem="CX2-bT-yAR" secondAttribute="leading" id="rSs-t0-WRq"/>
+                <constraint firstAttribute="trailing" secondItem="oQu-4O-9E3" secondAttribute="trailing" id="vbY-xA-NVW"/>
+            </constraints>
+            <point key="canvasLocation" x="-343.47826086956525" y="62.946428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
