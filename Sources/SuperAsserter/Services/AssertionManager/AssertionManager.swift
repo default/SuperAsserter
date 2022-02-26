@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WindowInstanceManager
 
 protocol AssertionManaging {
     func launch()
@@ -21,52 +22,43 @@ final class AssertionManager {
     
     // MARK: Properties
     private let assertion: Assertion
-    private let application: UIApplication
+    private var window: ManagedWindowReference?
     
-    private var resignedKeyWidnow: UIWindow!
-    private var presentedWidnow: UIWindow!
+    // MARK: Dependencies
+    private let windowManager: WindowInstanceManaging
     
     // MARK: Initializers
     init(
         assertion: Assertion,
-        app: UIApplication
+        windowManager: WindowInstanceManaging
     ) {
         self.assertion = assertion
-        self.application = app
+        self.windowManager = windowManager
     }
 }
 
-// MARK: - WindowManaging
+// MARK: - AssertionManaging
 extension AssertionManager: AssertionManaging {
     func launch() {
-        guard let applicationWidnow = application.keyWindow else {
-            assertionFailure("Asserted application does not have a keyWindow!")
-            return
-        }
-        resignedKeyWidnow = applicationWidnow
-        
-        let window = UIWindow(frame: UIScreen.main.bounds)
         let controller = AssertionController(assertion: assertion)
         controller.delegate = self
-        window.rootViewController = controller
-        window.makeKeyAndVisible()
-        presentedWidnow = window
+        
+        let window = windowManager.instance(withRoot: controller)
+        windowManager.makeKey(window)
+        self.window = window
     }
 }
 
 // MARK: - AssertionControllerDelegate
 extension AssertionManager: AssertionControllerDelegate {
     func didUserProceed() {
-        guard let window = presentedWidnow else {
+        guard let window = window else {
             return
         }
         
-        resignedKeyWidnow?.makeKeyAndVisible()
+        windowManager.resign(window)
+        self.window = nil
         
-        window.resignKey()
-        window.isHidden = true
-        
-        self.resignedKeyWidnow = nil
-        self.presentedWidnow = nil
+        delegate?.didFinish(self)
     }
 }
